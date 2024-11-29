@@ -1,7 +1,5 @@
-// URL da sua API que retorna os produtos
 const apiUrl = "https://product-hub.up.railway.app/produtos";
 
-// Função para buscar produtos da API
 async function fetchProdutos() {
   try {
     const response = await fetch(apiUrl);
@@ -16,10 +14,9 @@ async function fetchProdutos() {
   }
 }
 
-// Função para exibir os produtos na tabela
 function exibirProdutos(produtos) {
   const tableBody = document.querySelector("#produtos-table tbody");
-  tableBody.innerHTML = ""; // Limpa a tabela antes de adicionar os novos dados
+  tableBody.innerHTML = "";
 
   produtos.forEach((produto) => {
     const row = document.createElement("tr");
@@ -37,5 +34,4 @@ function exibirProdutos(produtos) {
   });
 }
 
-// Chama a função para carregar os produtos quando a página for carregada
 document.addEventListener("DOMContentLoaded", fetchProdutos);
